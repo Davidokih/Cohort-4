@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@theme {
+  --text-responsiveText: clamp(14px, 3vw, 24px);
+  --text-titleText: clamp(24px, 5vw, 50px);
+  --bg-bgImage: url("/vite.svg");
+}
+
