@@ -13,6 +13,8 @@ import GlobalLayout from "./layout/GlobalLayout";
 import { Route, Routes } from "react-router-dom";
 import Login from "./app/Login";
 import Register from "./app/Register";
+import AlUsers from "./app/AlUsers";
+import UserDetail from "./app/UserDetail";
 
 const App = () => {
   // const [productData, setProductData] = useState();
@@ -35,6 +37,8 @@ const App = () => {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/" element={<AlUsers />} />
+        <Route path="/detail/:id" element={<UserDetail />} />
       </Routes>
     </GlobalLayout>
   );
