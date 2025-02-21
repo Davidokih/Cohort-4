@@ -44,7 +44,7 @@ getUserDetail()
         <div className="text-secondary font-bold text-textClamp mb-4">
           {data?.phone_No}
         </div>
-        <div>
+        <div>                                                                                                                                                                       
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis
           minima, pariatur adipisci impedit vel iure quod laborum repellat modi?
           Perferendis hic...
