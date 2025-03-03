@@ -1,38 +1,57 @@
 import axios from "axios";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { addUser } from "../service/GlobalState";
+import { useLoginUserMutation } from "../service/userRTK";
+
 
 const Login = () => {
   const [values, setValues] = useState({
     email: "",
     password: "",
   });
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setValues({ ...values, [name]: value });
   };
 
+  const [loginUser,{data,isLoading,isSuccess,isError,error}] = useLoginUserMutation();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
+    loginUser(values)
+    // setIsLoading(true);
 
-    try {
-      const response = await axios.post(
-        "https://auth-user-yvxy.onrender.com/api/user/signin",
-        values
-      );
-      console.log(response);
-      setIsLoading(false);
-      localStorage.setItem("currentUser", response.data.data);
-      navigate("/");
-    } catch (error) {
-      console.log(error.response.message);
-      setIsLoading(false);
-    }
+    // try {
+    //   const response = await axios.post(
+    //     "https://auth-user-yvxy.onrender.com/api/user/signin",
+    //     values
+    //   );
+    //   console.log(response);
+    //   setIsLoading(false);
+    //   localStorage.setItem("currentUser", response.data.data);
+    //   dispatch(addUser(response.data.data))
+    //   navigate("/");
+    // } catch (error) {
+    //   console.log(error.response.message);
+    //   setIsLoading(false);
+    // }
   };
+
+  if(isSuccess){
+    dispatch(addUser(data.data))
+    alert('User login successfully',data.message)
+    navigate("/");
+  }
+  if(isError){
+    console.log(error)
+  }
+
   return (
     <div className="flex justify-center items-center h-[100vh] w-full">
       <form

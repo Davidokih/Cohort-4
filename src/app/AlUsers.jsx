@@ -2,24 +2,30 @@ import React, { useEffect, useState } from "react";
 import logo from "../assets/female-medical.jpg";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useGetAllUsersQuery } from "../service/userRTK";
 
 const AlUsers = () => {
-  const [data, setData] = useState([]);
-  const getAllUsers = async () => {
-    await axios
-      .get("https://auth-user-yvxy.onrender.com/api/user/all")
-      .then((res) => {
-        console.log(res.data);
-        setData(res.data.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  // const [data, setData] = useState([]);
+  // const getAllUsers = async () => {
+  //   await axios
+  //     .get("https://auth-user-yvxy.onrender.com/api/user/all")
+  //     .then((res) => {
+  //       // console.log(res.data);
+  //       setData(res.data.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
 
-  useEffect(() => {
-    getAllUsers();
-  }, []);
+  // useEffect(() => {
+  //   getAllUsers();
+  // }, []);
+
+  const {data: users} = useGetAllUsersQuery()
+  const data = users?.data
+
+  console.log(users)
   return (
     <div className="grid grid-cols-4 max-[1000px]:grid-cols-3 max-[768px]:grid-cols-2 max-[575px]:grid-cols-1 gap-3 p-4">
       {data.map((props,index)=>(

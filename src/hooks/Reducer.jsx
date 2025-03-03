@@ -20,6 +20,7 @@ const Reducer = () => {
   //   setChange('Grace')
   // }
   // console.log(name)
+  // addUser(Response.data.data)
 
   console.log(state);
   return (
