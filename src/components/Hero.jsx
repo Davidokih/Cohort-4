@@ -6,7 +6,7 @@ const Hero = () => {
       <CompLayout>
         <div className="max-w-[70%] max-[768px]:text-center justify-center items-center max-[768px]:flex flex-col max-[768px]:max-w-[100%]">
           <button className="text-blue-500 text-sm font-medium bg-[#D3E9FB] rounded-md px-2 py-1">
-            GREATE EXPERINCE IN BUILDING
+            GREATE EXPERINCE IN BUILDING for ur teaam
           </button>
 
           <div className="text-titleText font-semibold">
