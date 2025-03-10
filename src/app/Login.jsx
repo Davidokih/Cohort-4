@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { addUser } from "../service/GlobalState";
 import { useLoginUserMutation } from "../service/userRTK";
+import Spinner from "../components/Spinner";
 
 
 const Login = () => {
@@ -82,7 +83,7 @@ const Login = () => {
           disabled={isLoading}
           className="bg-green-400 cursor-pointer w-full py-2 rounded-md mt-4 mb-1"
         >
-          {isLoading ? "Loading..." : "Submit"}
+          {isLoading ? <Spinner /> : "Submit"}
         </button>
         <p>
           Already have an account?

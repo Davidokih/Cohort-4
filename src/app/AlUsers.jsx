@@ -28,7 +28,7 @@ const AlUsers = () => {
   console.log(users)
   return (
     <div className="grid grid-cols-4 max-[1000px]:grid-cols-3 max-[768px]:grid-cols-2 max-[575px]:grid-cols-1 gap-3 p-4">
-      {data.map((props,index)=>(
+      {data?.map((props,index)=>(
         <div className="border-2 rounded-md p-5" key={index}>
         <div className="flex justify-between items-center mb-4">
           <div className="leading-7">

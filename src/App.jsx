@@ -16,6 +16,7 @@ import Register from "./app/Register";
 import AlUsers from "./app/AlUsers";
 import UserDetail from "./app/UserDetail";
 import UpdateDetail from "./app/UpdateDetail";
+import UploadFile from "./app/UploadFile";
 
 const App = () => {
   // const [productData, setProductData] = useState();
@@ -38,7 +39,7 @@ const App = () => {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/" element={<AlUsers />} />
+        <Route path="/" element={<UploadFile />} />
         <Route path="/detail/:id" element={<UserDetail />} />
         <Route path="/update" element={<UpdateDetail />} />
       </Routes>
